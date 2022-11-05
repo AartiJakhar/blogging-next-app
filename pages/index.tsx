@@ -12,8 +12,13 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+     
+      <div className='imageWrap'>
+      <Image src='/coding2.avif'  className='image' style={{  borderRadius:"10px !important"}} alt="Coding" width={600} height={399} />
+
+      </div>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="/">OneClickSolution!</a>
         </h1>
 
         <p className={styles.description}>
