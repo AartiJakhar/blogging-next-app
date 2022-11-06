@@ -22,7 +22,7 @@ export default function slug() {
         </style>
         <div className="container">
          <h1>
-           {jsn.title}
+           {slug}
          </h1>
          <h2>
             {jsn.description}

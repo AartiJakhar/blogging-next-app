@@ -1,39 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Home.module.css"
 import Link from "next/link";
-import jsn from "../../blogdata/how-to-learn-java.json";
 export default function blog() {
+const [blogs, setBlogs] = useState([{
+  "title":"how to learn Nodejs",
+  "description":"Java is a coding launguage which is  ",
+  "content":"ava is a coding launguage which is the most need full one",
+  "author":"Harry bhai",
+  "slug":"how-to-learn-nodejs"
+}]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/blogs").then((a)=>{
+     return a.json();})
+     .then((parsed)=>{
+      setBlogs(parsed)
+    })
+  }, [])
+  console.log(blogs)
   return (
-    <div>
-      <div className={styles.grid} style={{margin:"auto"}}>
-        <Link href="/blog/blogpost/hello" className={styles.card}>
-          <h2>Documentation &rarr;</h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </Link>
+    <>
+    {blogs.map((e)=>{
+      return  <div key={e.slug}
+      className={styles.grid} style={{margin:"auto"}}> <Link href={`/blog/blogpost/${e.slug}`} className={styles.card}>
+      <h2>{e.title} &rarr;</h2>
+      <p>{e.description.slice(0,60)}..</p>
+    </Link>
+</div>;
+    })}
 
-        <Link href="https://nextjs.org/learn" className={styles.card}>
-          <h2>Learn &rarr;</h2>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </Link>
-
-        <Link
-          href="https://github.com/vercel/next.js/tree/canary/examples"
-          className={styles.card}
-        >
-          <h2>Examples &rarr;</h2>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </Link>
-
-        <Link
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.card}
-        >
-          <h2>Deploy &rarr;</h2>
-          <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-        </Link>
-      </div>
-    </div>
+   
+    </>
   );
 }
+
+// http://localhost:3000/api/getblog?slug=how-to-learn-java
+///http://localhost:3000/blog/blog

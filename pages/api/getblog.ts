@@ -1,7 +1,6 @@
 // http://localhost:3000/api/getblog?slug=how-to-learn-java
 import type { NextApiRequest, NextApiResponse } from 'next'
 import * as fs from 'fs'
-import { json } from 'stream/consumers'
 type Data = {
   error: string
 }
