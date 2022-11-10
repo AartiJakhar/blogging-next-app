@@ -17,9 +17,9 @@ const [blogs, setBlogs] = useState([{
       setBlogs(parsed)
     })
   }, [])
-  console.log(blogs)
   return (
-    <>
+    <div style={{display:"flex",justifyContent:"space-around"}}>
+    
     {blogs.map((e)=>{
       return  <div key={e.slug}
       className={styles.grid} style={{margin:"auto"}}> <Link href={`/blog/blogpost/${e.slug}`} className={styles.card}>
@@ -30,7 +30,7 @@ const [blogs, setBlogs] = useState([{
     })}
 
    
-    </>
+    </div>
   );
 }
 
