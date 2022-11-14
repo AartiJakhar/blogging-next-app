@@ -1,30 +1,9 @@
 
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
-export default function slug() {
+export default function slug(props:any) {
                
-    const [blog, setblog] = useState({"title":"how to learn Nodejs",
-    "description":"Java is a coding launguage which is  ",
-    "content":"ava is a coding launguage which is the most need full one",
-    "author":"Harry bhai",
-    "slug":"how-to-learn-nodejs"})
-const router=useRouter();
- useEffect(() => {
-  if(!router.isReady) return;
-  const {slug}=router.query
-
-   fetch(`http://localhost:3000/api/getblog?slug=${slug}`).then((a)=>{
-    return a.json();
-  })
-    .then((data)=>{
-      setblog(data)
-    })
- }, [router.isReady])
- 
-
-
-
-    
+    const [blog, setblog] = useState(props.viewBlog)    
     return (
   
     <div>
@@ -53,4 +32,11 @@ const router=useRouter();
         </div>
         </div>
   )
+}
+export async function getServerSideProps(context:any) {
+   const {slug}=context.query
+
+  const data = await fetch(`http://localhost:3000/api/getblog?slug=${slug}`)
+  const viewBlog = await data.json();
+   return {props : {viewBlog},}
 }
