@@ -1,7 +1,8 @@
 {
-    "title":"how to learn JavaScript",
-    "description":"Java is a coding launguage which is  ",
-    "content":"ava is a coding launguage which is the most need full one",
-    "author":"Harry bhai",
+    "title":"What is JavaScript? A Definition of the JS Programming Language",
+    "description":"What is JavaScript in simple word? JavaScript is a dynamic programming language that's used for web development, in web applications, for game development, and lots more. It allows you to implement dynamic features on web pages that cannot be done with only HTML and CSS.",
+    "content":"Many browsers use JavaScript as a scripting language for doing dynamic things on the web. Any time you see a click-to-show dropdown menu, extra content added to a page, and dynamically changing element colors on a page, to name a few features, you're seeing the effects of JavaScript.",
+    "author":"Aarti Jakhar",
+    "metadesc":"What is JavaScript in simple word? JavaScript is a dynamic programming language that's used for web development, in web applications, for game development, and lots more. It allows you to implement dynamic features on web pages that cannot be done with only HTML and CSS.",
     "slug":"how-to-learn-JavaScript"
 }
